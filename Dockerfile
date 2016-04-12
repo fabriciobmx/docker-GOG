@@ -9,27 +9,6 @@ RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* 
 ENV LANG pt_BR.UTF-8
 ENV LC_ALL pt_BR.UTF-8
 
-# Instalação do java7
-#RUN \
-#    echo "GOG - Passo 01 - Adicionando o repositório webupd8"  && \
-#    echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list  && \
-#    echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list  && \
-#    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886  && \
-#    apt-get update  && \
-#    \
-#    \
-#    echo "GOG - Passo 02 - Instalando o Java"  && \
-#    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
-#    echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
-#    DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java7-installer oracle-java7-set-default  && \
-#    \
-#    \
-#    echo "===> clean up..."  && \
-#    rm -rf /var/cache/oracle-jdk7-installer  && \
-#    apt-get clean  && \
-#    rm -rf /var/lib/apt/lists/*
-    
-
 # Instalação do Maven
 ENV MAVEN_VERSION 3.3.9
 
@@ -93,10 +72,7 @@ ADD arquivos/set_jboss_admin_pass.sh /opt/set_jboss_admin_pass.sh
 # Prepara ambiente para a carga de dados
 RUN echo "... Inclui os arquivos para execução da carga de dados"
 COPY arquivos/carregaDados.sh /opt/
-COPY arquivos/bancoDados/ScriptCargaDominio.sql /opt/
 COPY arquivos/bancoDados/ScriptCargaComplementar.sql /opt/
-COPY arquivos/bancoDados/ScriptCreateVWEstatisticasManifestacao.sql /opt/
-COPY arquivos/bancoDados/ScriptCreateVWUltimoTramite.sql /opt/
 
 RUN chmod +xwr /opt/*.sh
 

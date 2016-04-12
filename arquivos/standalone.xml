@@ -98,7 +98,7 @@
         <subsystem xmlns="urn:jboss:domain:datasources:1.0">
             <datasources>
                 <datasource jndi-name="java:/datasources/GOGDSPostreSQL" pool-name="GOGDSPostreSQL" enabled="true" use-java-context="true" use-ccm="true">
-                    <connection-url>jdbc:postgresql://HOSTNAME:5432/GOG</connection-url>
+                    <connection-url>jdbc:postgresql://HOSTNAME:5432/DBNAME</connection-url>
                     <driver>org.postgresql</driver>
                     <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
                     <pool>
@@ -109,35 +109,8 @@
                         <flush-strategy>FailingConnectionOnly</flush-strategy>
                     </pool>
                     <security>
-                        <user-name>clelsonrodrigues</user-name>
-                        <password>123456</password>
-                    </security>
-                    <timeout>
-                        <set-tx-query-timeout>true</set-tx-query-timeout>
-                        <blocking-timeout-millis>5000</blocking-timeout-millis>
-                        <idle-timeout-minutes>15</idle-timeout-minutes>
-                    </timeout>
-                    <statement>
-                        <track-statements>false</track-statements>
-                        <prepared-statement-cache-size>100</prepared-statement-cache-size>
-                        <share-prepared-statements>true</share-prepared-statements>
-                    </statement>
-                </datasource>
-                <datasource jndi-name="java:/datasources/ColegiadosDS" pool-name="ColegiadosDS" enabled="true" use-java-context="true" use-ccm="true">
-                    <connection-url>jdbc:jtds:sqlserver://MSSQL_DESENV:1433/BDCOLEGIADOS</connection-url>
-                    <driver>JTDS</driver>
-                    <new-connection-sql>select 1</new-connection-sql>
-                    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-                    <pool>
-                        <min-pool-size>5</min-pool-size>
-                        <max-pool-size>50</max-pool-size>
-                        <prefill>true</prefill>
-                        <use-strict-min>false</use-strict-min>
-                        <flush-strategy>FailingConnectionOnly</flush-strategy>
-                    </pool>
-                    <security>
-                        <user-name>49273728120</user-name>
-                        <password>Rodrigues!1919</password>
+                        <user-name>DBUSERNAME</user-name>
+                        <password>DBPASSWORD</password>
                     </security>
                     <timeout>
                         <set-tx-query-timeout>true</set-tx-query-timeout>
