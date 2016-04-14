@@ -46,7 +46,7 @@ Projetamos o Docker mantendo em mente o conceito de micro serviços. Neste senti
     - postgres:9.3 - postgresql 9.3
 - Um outro serviço para o Servidor de Aplicação
   - utilizando basicamente:
-    - debian:jessie
+    - java:openjdk-7-jdk (debian:jessie)
     - Java7 (OpenJdk)
     - Maven3
     - Git - command line
