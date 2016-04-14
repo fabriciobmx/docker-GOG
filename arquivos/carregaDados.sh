@@ -1,28 +1,27 @@
 #!/bin/sh
-DATABASE=GOG
-USERNAME=clelsonrodrigues
 
-HOSTNAME=10.0.0.217
-# Verifica o valor da variável de ambiente
-if [ -n "$HOSTNAMELINK" ]; then
-    HOSTNAME=$HOSTNAMELINK
-fi
+echo "Verificando variáveis de sistema: "
+echo "   HOSTNAMELINK: "$HOSTNAMELINK
+echo "   DBNAME: "$DBNAME
+echo "   DBUSERNAME: "$DBUSERNAME
+echo "   DBPASSWORD: "$DBPASSWORD
 
 PORT=5432
-PASSWORD=123456
-export PGPASSWORD=123456
+export PGPASSWORD=$DBPASSWORD
+echo ""
+echo "Carregando dados da aplicação ..."
 
-echo "Vai executar o script SQL para CARGA DO DOMÍNIO DE DADOS..."
-psql -q -h $HOSTNAME -p $PORT -U $USERNAME $DATABASE -f /opt/ScriptCargaDominio.sql
+echo "      ...executando o script SQL para CARGA DO DOMÍNIO DE DADOS..."
+psql -qh $HOSTNAMELINK -p $PORT -U $DBUSERNAME $DBNAME -f /opt/GOG/GOG/src/main/resources/ScriptCargaDominio.sql
 
-echo "Vai executar o script SQL para CARGA DE DADOS COMPLEMENTARES..." 
-psql -q -h $HOSTNAME -p $PORT -U $USERNAME $DATABASE -f /opt/ScriptCargaComplementar.sql
+echo "      ...executando o script SQL para CARGA DE DADOS COMPLEMENTARES..." 
+psql -qh $HOSTNAMELINK -p $PORT -U $DBUSERNAME $DBNAME -f /opt/ScriptCargaComplementar.sql
 
-echo "Vai executar o script SQL para CRIAÇÃO DA VIEW DE ESTATÍSTICAS DE MANIFESTAÇÃO"
-psql -h $HOSTNAME -p $PORT -U $USERNAME $DATABASE -f /opt/ScriptCreateVWEstatisticasManifestacao.sql
+echo "      ...executando o script SQL para CRIAÇÃO DA VIEW DE ESTATÍSTICAS DE MANIFESTAÇÃO"
+psql -qh $HOSTNAMELINK -p $PORT -U $DBUSERNAME $DBNAME -f /opt/GOG/GOG/src/main/resources/CREATE\ VwEstatisticasManifestacao.sql
 
-echo "Vai executar o script SQL para CRIAÇÃO DA VIEW DE ÚLTIMO TRAMITE"
-psql -h $HOSTNAME -p $PORT -U $USERNAME $DATABASE -f /opt/ScriptCreateVWUltimoTramite.sql
+echo "      ...executando o script SQL para CRIAÇÃO DA VIEW DE ÚLTIMO TRAMITE"
+psql -qh $HOSTNAMELINK -p $PORT -U $DBUSERNAME $DBNAME -f /opt/GOG/GOG/src/main/resources/CREATE\ vwUltimoTramite.sql
 
 
 

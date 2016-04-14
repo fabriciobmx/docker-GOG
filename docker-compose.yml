@@ -8,6 +8,9 @@ services:
     environment:
      - JBOSS_PASS=jboss
      - HOSTNAMELINK=db
+     - DBNAME=GOG
+     - DBUSERNAME=gog
+     - DBPASSWORD=gog 
     depends_on:
       - db
   db:
@@ -16,6 +19,6 @@ services:
     ports: 
      - 5432:5432
     environment:
-     - POSTGRES_USER=clelsonrodrigues
      - POSTGRES_DB=GOG
-     - POSTGRES_PASSWORD=123456
+     - POSTGRES_USER=gog
+     - POSTGRES_PASSWORD=gog
