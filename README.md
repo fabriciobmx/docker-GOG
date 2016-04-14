@@ -16,18 +16,20 @@ Para usar este projeto e montar o sistema GOG em sua máquina execute apenas qua
 git clone https://github.com/culturagovbr/docker-GOG.git
 ```
 > - Monte as imagens
-
-> É necessário criar as duas "images" docker do projeto: uma para o serviço de Banco de Dados (que pode ser acessada a partir do Dockerfile mantido no diretório "postgresql_9.3")
+> Serão criadas as duas "images" docker do projeto: uma para o serviço de Banco de Dados (que pode ser acessada a partir do Dockerfile mantido no diretório "postgresql_9.3") e outra para o serviço web (Dockerfile da raiz do projeto)
 ```
 docker-compose build
 ```
-> - Execute os containers
 
+> - Execute os containers
 ```
 docker-compose up
 ```
+
 > - Acesse a aplicação
->   - http://localhost:8080/GOG
+```
+http://localhost:8080/GOG
+```
 
 A imagem a seguir ilustra como este projeto deve ser utilizado:
 ![Como utilizar este projeto](/arquivos/DockerFluxoUtilizacao.jpg)
@@ -42,7 +44,7 @@ Projetamos o Docker mantendo em mente o conceito de micro serviços. Neste senti
 - Um outro serviço para o Servidor de Aplicação
   - utilizando basicamente:
     - debian:jessie
-    - Java7
+    - Java7 (OpenJdk)
     - Maven3
     - Git - command line
     - Jboss7.1.1 
