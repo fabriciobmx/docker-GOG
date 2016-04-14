@@ -11,22 +11,25 @@ Este projeto deve ser utilizado para a montagem e execução do sistema GOG em u
 
 Para usar este projeto e montar o sistema GOG em sua máquina execute apenas quatro passos principais
 
-> - Baixe o projeto 
-```
+> - **Baixe o projeto**
+```cmd
 git clone https://github.com/culturagovbr/docker-GOG.git
 ```
-> - Monte as imagens
-> Serão criadas as duas "images" docker do projeto: uma para o serviço de Banco de Dados (que pode ser acessada a partir do Dockerfile mantido no diretório "postgresql_9.3") e outra para o serviço web (Dockerfile da raiz do projeto)
+> - **Monte as imagens**
 ```
 docker-compose build
 ```
 
-> - Execute os containers
+>> Serão criadas as duas "images" docker do projeto: 
+>> - uma para o serviço de Banco de Dados (que pode ser acessada a partir do Dockerfile mantido no diretório "postgresql_9.3") 
+>> - outra para o serviço web (Dockerfile da raiz do projeto)
+
+> - **Execute os containers**
 ```
 docker-compose up
 ```
 
-> - Acesse a aplicação
+> - **Acesse a aplicação**
 ```
 http://localhost:8080/GOG
 ```
