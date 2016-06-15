@@ -101,6 +101,7 @@
                     <connection-url>jdbc:postgresql://HOSTNAME:5432/DBNAME</connection-url>
                     <driver>org.postgresql</driver>
                     <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+                    <new-connection-sql>SET search_path TO DBSCHEMA;<\/new-connection-sql>
                     <pool>
                         <min-pool-size>5</min-pool-size>
                         <max-pool-size>50</max-pool-size>
