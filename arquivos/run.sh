@@ -20,11 +20,13 @@ echo "   HOSTNAME: "$HOSTNAME
 echo "   DBNAME: "$DBNAME
 echo "   DBUSERNAME: "$DBUSERNAME
 echo "   DBPASSWORD: "$DBPASSWORD
+echo "   DBSCHEMA: "$DBSCHEMA
 
 sed -i -r "s/HOSTNAME/$HOSTNAME/" /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml
 sed -i -r "s/DBNAME/$DBNAME/" /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml
 sed -i -r "s/DBUSERNAME/$DBUSERNAME/" /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml
 sed -i -r "s/DBPASSWORD/$DBPASSWORD/" /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml
+sed -i -r "s/DBSCHEMA/$DBSCHEMA/" /opt/jboss-as-7.1.1.Final/standalone/configuration/standalone.xml
 
 
 # Aguardar a configuração do serviço de bancos para iniciar o jboss...
