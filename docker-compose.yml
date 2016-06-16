@@ -11,6 +11,7 @@ services:
      - DBNAME=GOG
      - DBUSERNAME=gog
      - DBPASSWORD=gog 
+     - DBSCHEMA=ouvidoria
     depends_on:
       - db
   db:
